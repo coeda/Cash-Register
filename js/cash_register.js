@@ -1,14 +1,12 @@
 //Keeps total balance
 var myCalc = calculator();
-var clickedValue;
-
 
 var cashRegisterModule  = function(){
 
 
   var cashier = {};
   var cashierBalance = 0;
-  var operator;
+  var operator = false;
   var displayArray = [];
 
 
@@ -21,24 +19,29 @@ var cashRegisterModule  = function(){
   //adds value to displayArray
   cashier.updateDisplay = function(n){
     //create array value
+    if(operator === true){
+      cashier.clearDisplay();
+      operator = false;
+    }
     var pushArrayValue = n;
     displayArray.push(pushArrayValue);
-    console.log(displayArray);
     cashier.showDisplay();
-    console.log(displayArray.join(''));
 
   };
 
   //clears value from display, sets display array to empty
   cashier.clearDisplay = function(){
-    displayArray = [];
+    displayArray = [''];
     cashier.showDisplay();
-
   };
 
   //grabs balance from memory
   cashier.getBalance = function(){
-    displayArray.push(cashierBalance.toString().split(''));
+    cashier.clearDisplay();
+    cashier.updateDisplay(cashierBalance);
+    cashier.calculator.clearMemory();
+    cashier.calculator.clearTotal();
+    cashier.showDisplay();
   };
 
 
@@ -72,17 +75,24 @@ window.onload = function(){
   let button00 = document.getElementById('00');
     button00.addEventListener('click', function(){cashier.updateDisplay('00');});
   let buttonDivide = document.getElementById('/');
-    buttonDivide.addEventListener('click', function(){cashier.calculator.divide((document.getElementById('display').value));});
+    buttonDivide.addEventListener('click', function(){cashier.calculator.divide((document.getElementById('display').value)); });
   let buttonMultiply = document.getElementById('*');
-    buttonMultiply.addEventListener('click', function(){cashier.calculator.multiply((document.getElementById('display').value));});
+    buttonMultiply.addEventListener('click', function(){cashier.updateDisplay(cashier.calculator.multiply((document.getElementById('display').value)));});
+
   let buttonAdd = document.getElementById('+');
     buttonAdd.addEventListener('click', function(){cashier.calculator.add((document.getElementById('display').value));});
+    buttonAdd.addEventListener('click', function(){cashier.clearDisplay();});
+    buttonAdd.addEventListener('click', function(){cashier.updateDisplay(cashier.calculator.getTotal());});
+
   let buttonSubtract = document.getElementById('-');
-    buttonSubtract.addEventListener('click', function(){cashier.calculator.subtract((document.getElementById('display').value));});
+    buttonSubtract.addEventListener('click', function(){cashier.calculator.subtract((document.getElementById('display').value));}, function(){cashier.updateDisplay();});
+
   let buttonClear = document.getElementById('clear');
     buttonClear.addEventListener('click', function(){cashier.clearDisplay();});
-  // let buttonGetBalance = document.getElementById('getBalance');
-  //   buttonGetBalance.addEventListener('click', function(){cashier.calculator.subtract((document.getElementById('display').value));});
+    buttonClear.addEventListener('click', function(){cashier.calculator.clearTotal();});
+
+  let buttonGetBalance = document.getElementById('getBalance');
+    buttonGetBalance.addEventListener('click', function(){cashier.getBalance();});
 
 
 

@@ -9,8 +9,9 @@
 const calculator = (function(){
 
 
-  var memory = 0;
-  var total = 0;
+  var memory;
+  var total;
+
 
   let calculator = {};
 
@@ -21,17 +22,18 @@ const calculator = (function(){
    */
 
 
-   calculator.load = function(number){
-    var validatedNumber = validate(number);
-     total = validatedNumber;
-     return total;
-     };
+   // calculator.load = function(number){
+   //  var validatedNumber = validate(number);
+   //   total = validatedNumber;
+   //   return total;
+   //   };
+
 
   /**
    * Return the value of `total`
    * @return { Number }
    */
-   calculator.getTotal = function(number){
+   calculator.getTotal = function(){
     return total;
 
    };
@@ -41,9 +43,18 @@ const calculator = (function(){
    * @param { Number } x
    */
 
-   calculator.add = function(number){
-    var validatedNumber = validate(number);
-    return total += validatedNumber;
+   calculator.add = function(validatedNumber){
+    var intTotal;
+    var intNumber;
+    intTotal = parseInt(total);
+    intNumber = parseInt(validatedNumber);
+    if(isNaN(intTotal)){
+      total = intNumber;
+    } else {
+      total = intTotal + intNumber;
+      console.log(calculator.getTotal());
+    }
+    return calculator.getTotal();
 
    };
 
@@ -55,7 +66,9 @@ const calculator = (function(){
 
    calculator.subtract = function(number){
     var validatedNumber = validate(number);
-    return total -= validatedNumber;
+
+    total -= validatedNumber;
+    return calculator.getTotal();
 
    };
 
@@ -67,6 +80,7 @@ const calculator = (function(){
 
    calculator.multiply = function(number){
     var validatedNumber = validate(number);
+
     return total *= validatedNumber;
 
    };
@@ -79,6 +93,7 @@ const calculator = (function(){
 
   calculator.divide = function(number){
     var validatedNumber = validate(number);
+
     return total /= validatedNumber;
   };
 
@@ -108,6 +123,11 @@ const calculator = (function(){
     memory = 0;
    };
 
+   calculator.clearTotal = function(){
+    total = 0;
+   };
+
+
   /**
    * Validation
    */
@@ -117,7 +137,7 @@ const calculator = (function(){
 
     }
     else{
-    return newNumber;
+    return parseFloat(newNumber);
     }
    };
 
