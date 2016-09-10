@@ -56,28 +56,28 @@ return cashier;
 var cashier = cashRegisterModule();
 
 window.onload = function(){
-  let button1 = document.getElementById('1');
-    button1.addEventListener('click', function(){cashier.addNumberToArray(1);});
-  let button2 = document.getElementById('2');
-    button2.addEventListener('click', function(){cashier.addNumberToArray(2);});
-  let button3 = document.getElementById('3');
-    button3.addEventListener('click', function(){cashier.addNumberToArray(3);});
-  let button4 = document.getElementById('4');
-    button4.addEventListener('click', function(){cashier.addNumberToArray(4);});
-  let button5 = document.getElementById('5');
-    button5.addEventListener('click', function(){cashier.addNumberToArray(5);});
-  let button6 = document.getElementById('6');
-    button6.addEventListener('click', function(){cashier.addNumberToArray(6);});
-  let button7 = document.getElementById('7');
-    button7.addEventListener('click', function(){cashier.addNumberToArray(7);});
-  let button8 = document.getElementById('8');
-    button8.addEventListener('click', function(){cashier.addNumberToArray(8);});
-  let button9 = document.getElementById('9');
-    button9.addEventListener('click', function(){cashier.addNumberToArray(9);});
-  let button0 = document.getElementById('0');
-    button0.addEventListener('click', function(){cashier.addNumberToArray(0);});
-  let button00 = document.getElementById('00');
-    button00.addEventListener('click', function(){cashier.addNumberToArray('00');});
+  let button_1 = document.getElementById('1');
+    button_1.addEventListener('click', function(){cashier.addNumberToArray(1);});
+  let button_2 = document.getElementById('2');
+    button_2.addEventListener('click', function(){cashier.addNumberToArray(2);});
+  let button_3 = document.getElementById('3');
+    button_3.addEventListener('click', function(){cashier.addNumberToArray(3);});
+  let button_4 = document.getElementById('4');
+    button_4.addEventListener('click', function(){cashier.addNumberToArray(4);});
+  let button_5 = document.getElementById('5');
+    button_5.addEventListener('click', function(){cashier.addNumberToArray(5);});
+  let button_6 = document.getElementById('6');
+    button_6.addEventListener('click', function(){cashier.addNumberToArray(6);});
+  let button_7 = document.getElementById('7');
+    button_7.addEventListener('click', function(){cashier.addNumberToArray(7);});
+  let button_8 = document.getElementById('8');
+    button_8.addEventListener('click', function(){cashier.addNumberToArray(8);});
+  let button_9 = document.getElementById('9');
+    button_9.addEventListener('click', function(){cashier.addNumberToArray(9);});
+  let button_0 = document.getElementById('0');
+    button_0.addEventListener('click', function(){cashier.addNumberToArray(0);});
+  let button_00 = document.getElementById('00');
+    button_00.addEventListener('click', function(){cashier.addNumberToArray('00');});
 
   let buttonDivide = document.getElementById('/');
     buttonDivide.addEventListener('click', function(){cashier.calculator.divide((document.getElementById('display').value));});
@@ -110,7 +110,7 @@ window.onload = function(){
   let buttonGetBalance = document.getElementById('getBalance');
     buttonGetBalance.addEventListener('click', function(){cashier.getBalance();});
 
-  let buttonGetBalance = document.getElementById('=');
+  let buttonEquals = document.getElementById('=');
     buttonGetBalance.addEventListener('click', function(){cashier.getBalance();});
 
 
