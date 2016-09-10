@@ -28,7 +28,6 @@ const calculator = (function(){
    //   return total;
    //   };
 
-
   /**
    * Return the value of `total`
    * @return { Number }
@@ -64,10 +63,17 @@ const calculator = (function(){
    * @param  { Number } x
    */
 
-   calculator.subtract = function(number){
-    var validatedNumber = validate(number);
-
-    total -= validatedNumber;
+   calculator.subtract = function(validatedNumber){
+    var intTotal;
+    var intNumber;
+    intTotal = parseInt(total);
+    intNumber = parseInt(validatedNumber);
+    if(isNaN(intTotal)){
+      total = intNumber;
+    } else {
+      total = intTotal - intNumber;
+      console.log(calculator.getTotal());
+    }
     return calculator.getTotal();
 
    };
@@ -78,11 +84,18 @@ const calculator = (function(){
    * @param  { Number } x
    */
 
-   calculator.multiply = function(number){
-    var validatedNumber = validate(number);
-
-    return total *= validatedNumber;
-
+   calculator.multiply = function(validatedNumber){
+    var intTotal;
+    var intNumber;
+    intTotal = parseInt(total);
+    intNumber = parseInt(validatedNumber);
+    if(isNaN(intTotal)){
+      total = intNumber;
+    } else {
+      total = intTotal * intNumber;
+      console.log(calculator.getTotal());
+    }
+    return calculator.getTotal();
    };
 
 
@@ -91,10 +104,18 @@ const calculator = (function(){
    * @param  { Number } x
    */
 
-  calculator.divide = function(number){
-    var validatedNumber = validate(number);
-
-    return total /= validatedNumber;
+  calculator.divide = function(validatedNumber){
+    var intTotal;
+    var intNumber;
+    intTotal = parseInt(total);
+    intNumber = parseInt(validatedNumber);
+    if(isNaN(intTotal)){
+      total = intNumber;
+    } else {
+      total = intTotal / intNumber;
+      console.log(calculator.getTotal());
+    }
+    return calculator.getTotal();
   };
 
   /**
