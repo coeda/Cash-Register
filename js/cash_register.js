@@ -35,8 +35,6 @@ var cashRegisterModule  = function(){
 
   //grabs balance from memory
   cashier.getBalance = function(){
-
-
     cashier.clearDisplay();
     cashier.addNumberToArray(cashierBalance);
 
