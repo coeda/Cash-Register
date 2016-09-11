@@ -35,9 +35,9 @@ var cashRegisterModule  = function(){
 
   //grabs balance from memory
   cashier.getBalance = function(){
+
+
     cashier.clearDisplay();
-    cashier.calculator.clearMemory();
-    cashier.calculator.clearTotal();
     cashier.addNumberToArray(cashierBalance);
 
   };
@@ -53,6 +53,16 @@ var cashRegisterModule  = function(){
     displayArray.push(pushArrayValue);
     cashier.showDisplay();
 
+  };
+
+  cashier.pushBalance = function(){
+    cashier.calculator.saveMemory(cashierBalance);
+    cashier.calculator.pushTotal(cashierBalance);
+
+  };
+
+  cashier.setBalance = function(){
+    cashierBalance = cashier.calculator.recallMemory();
   };
 
   cashier.selectedOperation = function(savedMemory){
@@ -87,13 +97,10 @@ var cashRegisterModule  = function(){
         equalsTo = false;
       }
 
+
     }
   };
 
-
-  cashier.doSavedOperation = function(){
-
-  };
 
 
 return cashier;
@@ -168,6 +175,26 @@ window.onload = function(){
 
   let buttonGetBalance = document.getElementById('getBalance');
     buttonGetBalance.addEventListener('click', function(){cashier.getBalance();});
+    buttonGetBalance.addEventListener('click', function(){cashier.calculator.clearMemory();});
+    buttonGetBalance.addEventListener('click', function(){cashier.calculator.clearTotal();});
+    buttonGetBalance.addEventListener('click', function(){cashier.grabOperator();});
+
+  let buttonDeposit = document.getElementById('deposit');
+    buttonDeposit.addEventListener('click', function(){cashier.pushBalance();});
+    buttonDeposit.addEventListener('click', function(){cashier.grabOperator('+');});
+    buttonDeposit.addEventListener('click', function(){cashier.selectedOperation(document.getElementById('display').value);});
+    buttonDeposit.addEventListener('click', function(){cashier.setBalance();});
+    buttonDeposit.addEventListener('click', function(){cashier.getBalance();});
+    buttonDeposit.addEventListener('click', function(){cashier.grabOperator();});
+
+
+  let buttonWithdraw = document.getElementById('withdraw');
+    buttonWithdraw.addEventListener('click', function(){cashier.pushBalance();});
+    buttonWithdraw.addEventListener('click', function(){cashier.grabOperator('-');});
+    buttonWithdraw.addEventListener('click', function(){cashier.selectedOperation(document.getElementById('display').value);});
+    buttonWithdraw.addEventListener('click', function(){cashier.setBalance();});
+    buttonWithdraw.addEventListener('click', function(){cashier.getBalance();});
+    buttonWithdraw.addEventListener('click', function(){cashier.grabOperator();});
 
   let buttonEquals = document.getElementById('=');
 

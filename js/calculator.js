@@ -33,7 +33,9 @@ const calculator = (function(){
    * @return { Number }
    */
 
-
+   calculator.pushTotal = function(n){
+    total = n;
+   };
 
    calculator.getTotal = function(){
     return total;
@@ -55,10 +57,7 @@ const calculator = (function(){
       total = 0;
     }
     total = intMemory + intNumber;
-    console.log(calculator.getTotal());
     calculator.saveMemory(total);
-
-    console.log(memory);
 
    };
 
@@ -78,10 +77,7 @@ const calculator = (function(){
       total = 0;
     }
     total = intMemory - intNumber;
-    console.log(calculator.getTotal());
     calculator.saveMemory(total);
-
-    console.log(memory);
 
    };
 
@@ -101,10 +97,7 @@ const calculator = (function(){
       total = 0;
     }
     total = intMemory * intNumber;
-    console.log(calculator.getTotal());
     calculator.saveMemory(total);
-
-    console.log(memory);
 
    };
 
@@ -124,10 +117,7 @@ const calculator = (function(){
       total = 0;
     }
     total = intMemory / intNumber;
-    console.log(calculator.getTotal());
     calculator.saveMemory(total);
-
-    console.log(memory);
 
   };
 
@@ -160,7 +150,6 @@ const calculator = (function(){
    calculator.clearTotal = function(){
     total = null;
    };
-
 
   /**
    * Validation
