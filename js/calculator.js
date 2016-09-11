@@ -8,9 +8,10 @@
 
 const calculator = (function(){
 
-
-  var memory;
-  var total;
+  //number to operate with
+  var memory = null;
+  //total
+  var total = null;
 
 
   let calculator = {};
@@ -22,16 +23,18 @@ const calculator = (function(){
    */
 
 
-   // calculator.load = function(number){
-   //  var validatedNumber = validate(number);
-   //   total = validatedNumber;
-   //   return total;
-   //   };
+    calculator.load = function(nnumber){
+     var validatedNumber = validate(number);
+      memory = validatedNumber;
+      };
 
   /**
    * Return the value of `total`
    * @return { Number }
    */
+
+
+
    calculator.getTotal = function(){
     return total;
 
@@ -46,14 +49,16 @@ const calculator = (function(){
     var intTotal;
     var intNumber;
     intTotal = parseInt(total);
+    intMemory = parseFloat(memory);
     intNumber = parseInt(validatedNumber);
-    if(isNaN(intTotal)){
-      total = intNumber;
-    } else {
-      total = intTotal + intNumber;
-      console.log(calculator.getTotal());
+    if(!isNaN(intTotal)){
+      total = 0;
     }
-    return calculator.getTotal();
+    total = intMemory + intNumber;
+    console.log(calculator.getTotal());
+    calculator.saveMemory(total);
+
+    console.log(memory);
 
    };
 
@@ -67,14 +72,16 @@ const calculator = (function(){
     var intTotal;
     var intNumber;
     intTotal = parseInt(total);
+    intMemory = parseFloat(memory);
     intNumber = parseInt(validatedNumber);
-    if(isNaN(intTotal)){
-      total = intNumber;
-    } else {
-      total = intTotal - intNumber;
-      console.log(calculator.getTotal());
+    if(!isNaN(intTotal)){
+      total = 0;
     }
-    return calculator.getTotal();
+    total = intMemory - intNumber;
+    console.log(calculator.getTotal());
+    calculator.saveMemory(total);
+
+    console.log(memory);
 
    };
 
@@ -88,14 +95,17 @@ const calculator = (function(){
     var intTotal;
     var intNumber;
     intTotal = parseInt(total);
+    intMemory = parseFloat(memory);
     intNumber = parseInt(validatedNumber);
-    if(isNaN(intTotal)){
-      total = intNumber;
-    } else {
-      total = intTotal * intNumber;
-      console.log(calculator.getTotal());
+    if(!isNaN(intTotal)){
+      total = 0;
     }
-    return calculator.getTotal();
+    total = intMemory * intNumber;
+    console.log(calculator.getTotal());
+    calculator.saveMemory(total);
+
+    console.log(memory);
+
    };
 
 
@@ -108,14 +118,17 @@ const calculator = (function(){
     var intTotal;
     var intNumber;
     intTotal = parseInt(total);
+    intMemory = parseFloat(memory);
     intNumber = parseInt(validatedNumber);
-    if(isNaN(intTotal)){
-      total = intNumber;
-    } else {
-      total = intTotal / intNumber;
-      console.log(calculator.getTotal());
+    if(!isNaN(intTotal)){
+      total = 0;
     }
-    return calculator.getTotal();
+    total = intMemory / intNumber;
+    console.log(calculator.getTotal());
+    calculator.saveMemory(total);
+
+    console.log(memory);
+
   };
 
   /**
@@ -123,7 +136,7 @@ const calculator = (function(){
    * @return { Number }
    */
 
-  calculator.recallMemory = function(number){
+  calculator.recallMemory = function(){
     return memory;
   };
 
@@ -131,8 +144,8 @@ const calculator = (function(){
    * Stores the value of `total` to `memory`
    */
 
-   calculator.saveMemory = function(){
-    memory = total;
+   calculator.saveMemory = function(number){
+    memory = number;
    };
 
 
@@ -141,11 +154,11 @@ const calculator = (function(){
    */
 
    calculator.clearMemory = function(){
-    memory = 0;
+    memory = null;
    };
 
    calculator.clearTotal = function(){
-    total = 0;
+    total = null;
    };
 
 
