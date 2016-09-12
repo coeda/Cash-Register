@@ -50,9 +50,9 @@ const calculator = (function(){
    calculator.add = function(validatedNumber){
     var intTotal;
     var intNumber;
-    intTotal = parseInt(total);
+    intTotal = parseFloat(total);
     intMemory = parseFloat(memory);
-    intNumber = parseInt(validatedNumber);
+    intNumber = parseFloat(validatedNumber);
     if(!isNaN(intTotal)){
       total = 0;
     }
@@ -70,9 +70,9 @@ const calculator = (function(){
    calculator.subtract = function(validatedNumber){
     var intTotal;
     var intNumber;
-    intTotal = parseInt(total);
+    intTotal = parseFloat(total);
     intMemory = parseFloat(memory);
-    intNumber = parseInt(validatedNumber);
+    intNumber = parseFloat(validatedNumber);
     if(!isNaN(intTotal)){
       total = 0;
     }
@@ -90,9 +90,9 @@ const calculator = (function(){
    calculator.multiply = function(validatedNumber){
     var intTotal;
     var intNumber;
-    intTotal = parseInt(total);
+    intTotal = parseFloat(total);
     intMemory = parseFloat(memory);
-    intNumber = parseInt(validatedNumber);
+    intNumber = parseFloat(validatedNumber);
     if(!isNaN(intTotal)){
       total = 0;
     }
@@ -110,9 +110,9 @@ const calculator = (function(){
   calculator.divide = function(validatedNumber){
     var intTotal;
     var intNumber;
-    intTotal = parseInt(total);
+    intTotal = parseFloat(total);
     intMemory = parseFloat(memory);
-    intNumber = parseInt(validatedNumber);
+    intNumber = parseFloat(validatedNumber);
     if(!isNaN(intTotal)){
       total = 0;
     }
