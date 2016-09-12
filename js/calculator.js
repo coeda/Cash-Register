@@ -38,7 +38,7 @@ const calculator = (function(){
    };
 
    calculator.getTotal = function(){
-    return total;
+    return total.toFixed(2);
 
    };
 
@@ -127,7 +127,7 @@ const calculator = (function(){
    */
 
   calculator.recallMemory = function(){
-    return memory;
+    return memory.toFixed(2);
   };
 
   /**
