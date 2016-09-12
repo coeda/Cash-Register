@@ -8,6 +8,7 @@ var cashRegisterModule  = function(){
   var cashierBalance = 0;
   var operator;
   var displayArray = [];
+  var decimalStatus = false;
   cashier.equalsTo = false;
   cashier.savedOperator = '';
 
@@ -44,9 +45,13 @@ var cashRegisterModule  = function(){
     var pushArrayValue = n;
     if(operator === true){
       cashier.clearDisplay();
+      decimalStatus = false;
     }
-    if(n >= 0 || n === '00'){
+    if(n >= 0 || n === '00' || n === '.'){
       operator = false;
+      if(n === '.'){
+        decimalStatus = true;
+      }
     }
     displayArray.push(pushArrayValue);
     cashier.showDisplay();
@@ -98,6 +103,13 @@ var cashRegisterModule  = function(){
 
     }
   };
+
+cashier.decimalCheck = function(){
+  if(decimalStatus === false){
+    //allow decimal to be clicked, set to true after clicked
+    cashier.addNumberToArray('.');
+  }
+}
 
 
 
@@ -204,6 +216,7 @@ window.onload = function(){
     //Updates display with new total after add button is clicked.
     buttonEquals.addEventListener('click', function(){cashier.grabOperator();});
 
-
+  let buttonDecimal = document.getElementById('.');
+    buttonDecimal.addEventListener('click', function(){cashier.decimalCheck();});
 
   };
